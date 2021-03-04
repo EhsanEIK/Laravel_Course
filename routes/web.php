@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,17 @@ Route::get('/', function () {
 });
 
 Route::get('about','HomeController@Index');
+Route::get('customer','CustomerController@Index');
+	
+
+Route::get('post',function(){
+	// $data=App\Post::insert([
+	// 	'title'=>'Post4',
+	// 	'description'=>"Lorem Ispum",
+	// 	'status'=>1
+	// ]);
+
+	$data=Post::findorfail(50);
+
+	return $data;
+});
